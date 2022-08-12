@@ -23,4 +23,11 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
-Route::get('/register',[PersonController::class,'create']);
+Route::get('/register',function(){
+    return view('person.create');
+});
+Route::post('create-person',[PersonController::class,'create']);
+Route::get('/all-persons',[PersonController::class,'getAll']);
+Route::get('/edit/{id}',[PersonController::class,'edit']);
+Route::post('/update/{id}',[PersonController::class,'update']);
+Route::get('/delete/{id}',[PersonController::class,'delete']);
